@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Manjari Bold';
+    src: url("../Fonts/MANJARI-BOLD.TTF");
+}
+
+@font-face {
+    font-family: 'Manjari Regular';
+    src: url("../Fonts/MANJARI-REGULAR.TTF");
+}
+
+@font-face {
+    font-family: 'Manjari Thin';
+    src: url("../Fonts/MANJARI-THIN.TTF");
+}
+
+:root {
+    --font-family-bold: 'Manjari Bold';
+    --font-family-regular: 'Manjari Regular';
+    --font-family-thin: 'Manjari Thin';
+    --cor-laranja: #EE9C29;
+    --background-color: #f5f5f5;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block; 
+}
+
+.banner-container{
+    width: 100%;
+    height: auto;
+}
+
+/* Tablet (768px ou mais) */
+@media (min-width: 768px) {
+    .banner-img {
+        width: 100%; 
+    }
+}
+
+/* Mobile (menor que 768px) */
+@media (max-width: 768px) {
+    .banner-img {
+        width: 100%; 
+    }
+}
