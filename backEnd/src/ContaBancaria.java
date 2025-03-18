@@ -65,6 +65,6 @@ public class ContaBancaria {
                  return String.format("Depósito de R$ %.2f realizado com sucesso. Novo saldo: R$ %.2f", valor, saldo);
             } // Fim depositar
         
-        } // Fim classe ContaBancaria
+        } // Fim classe ContaBancaria.
 
     
