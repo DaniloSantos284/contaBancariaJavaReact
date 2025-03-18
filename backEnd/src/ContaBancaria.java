@@ -1,21 +1,36 @@
-package contabancariajavareact.backend.src;
+
 
 public class ContaBancaria {
 
     //Atributos da classe ContaBancaria
-    private String titular = "(nome do titular)";
-    private String numeroDaConta = "(nome do titular)";
-    private double saldo = 1560.80;
+    private String titular = "Fulano de Tal";
+    private String numeroDaConta = "0000-0";
+    private double saldo = 0.0;
+    private String[] tipoConta = {
+        "Conta Corrente",
+        "Conta Poupança",
+        "Conta Salário",
+        "Conta Administrador"
+    };
     
-    public ContaBancaria(double saldoInicial) {
-        this.saldo = saldoInicial;
-    }
+
+    
+
+    public ContaBancaria(double saldoInicial)
+        {
+            if (saldoInicial < 0) {
+                throw new IllegalArgumentException("O saldo inicial não pode ser negativo.");
+            }
+            this.saldo = saldoInicial;
+        }
     
     
-    // Metodos da classe
+    // Metodos da classe a seguir
+
+
     public String exibirSaldo() { // Saldo
         return String.format("Seu saldo é de: %.2f", saldo);
-    }
+    } // Fim saldo
 
         public String transferir(ContaBancaria destino, double valor) { // Transferir
             if (valor > 0 && this.sacar(valor).startsWith("Saque")) {
@@ -25,24 +40,31 @@ public class ContaBancaria {
                 return "Transferência não realizada.";
             }
             
-        }
+        } // Fim transferir
+
             public String sacar(double valorQueQuerSacar) {  // Saque
                 if (valorQueQuerSacar <= 0) {
-                    return "Valor inválido pra saque.";
-                } else if  (valorQueQuerSacar > saldo) {
+                   throw new IllegalArgumentException("O valor tem que ser maior que zero.");
+                }
+
+                if  (valorQueQuerSacar > saldo) {
                     return "Saldo insuficiente para o saque.";
-                } else {
+                } 
+                
+            
                     saldo -= valorQueQuerSacar;
                     return String.format("Saque de R$ %.2f realizado com sucesso. Novo saldo: R$ %.2f", valorQueQuerSacar, saldo);
-                }
-            }
+            
+            } // Fim saque
 
-            public void depositar(double valor) { // depositar
+            public String depositar(double valor) { // depositar
                 if (valor > 0) {
-                    saldo += valor;
+                    throw new IllegalArgumentException("O valor do depósito deve ser maior que zero.");
                 }
-            }
+                saldo += valor;
+                 return String.format("Depósito de R$ %.2f realizado com sucesso. Novo saldo: R$ %.2f", valor, saldo);
+            } // Fim depositar
         
-        }
+        } // Fim classe ContaBancaria
 
     
